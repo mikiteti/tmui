@@ -1,0 +1,84 @@
+default box sizing: border box
+
+include tmui.css in head
+include tmui.js on bottom, save tmui_controls() as const -- recommended name: "tmui"
+    accepted parameters:
+        modal_toggle_duration [ms],
+        theme_toggle_duration [ms],
+        hold_duration [ms]: holdable buttons' activation time,
+        theme ["light", "dark"]: if not indicated by html elements "light" or "dark" class
+
+themes
+    switch with tmui.set_theme();
+    accepted parameters: "light", "dark"
+
+modals
+    #modal_background: covers and blurs whole page, closes open modal on click, added automatically on tmui_controls()
+    .modal
+        parsed on tmui_controls()
+        open: tmui.open_modal(element)
+        close: tmui.close_modal(element)
+        best practice: place at the end of html file
+        optional: .spin_border
+        optional: .narrow (useful when displaying .horizontal_buttons)
+    .modal_header
+        flexbox, can have .modal_title, which pushes everything else to the right
+        has a default border-bottom
+    .modal_footer
+        flexbox, usually used to display .icon_buttons
+        has a default border-top
+    .modal_main
+        modal content's container
+        adds padding
+    .modal_handler
+        handles modal on click -- ran through js on tmui_controls()
+        tm-for: querySelector, defines .modal element to act on -- required
+        tm-role ["open", "close"]: defines modal handling action -- "open" by default
+
+.container
+    adds horizontal padding
+    horizontal flexbox with a gap of --gap or --modal-gap if inside modal
+    .row
+        flexbox, wraps if necessary
+        .input_row
+            syntax: <p>title</p><input />
+            <input /> is pushed to the right, except when having own row
+        .align_items_baseline
+            makes items baseline-aligned
+        .buttons
+            makes gap --buttons-gap instead of default value --gap
+
+button
+    .clickable
+        adds click effect -- scale(.9) when active
+    .holdable
+        parsed on tmui_controls()
+        when held for hold_duration, contextmenu event is called
+    .icon_button
+        adds pressable inline icon
+        parsed on tmui_controls()
+        icon-source: url to svg file -- preferrably "https://icons.getbootstrap.com/assets/icons/*.svg" -- required
+        .dropdown
+            .icon_button with default icon-source "https://icons.getbootstrap.com/assets/icons/chevron-expand.svg"
+    .horizontal_button
+        flexbox with --buttons-gap,
+        mostly used in .narrow .modals
+
+.card
+    has box-shadow --box-shadow, border-radius --card-border-radius, background-color --color-background-secondary
+
+.spin_border
+    creates spinning border of 1px solid --accent-color, with a period of --border-spin-duration
+    optional css variables:
+        --border-spin-duration ["s", "ms"]: defines period of border spin
+        --border-width ["px", ...]
+        --accent-color ["rgb", ...]
+        --background-color ["rgb", ...]: defines background color of element -- default: --color-background-secondary
+
+input[type="checkbox"]
+    default apple-style checkbox
+
+.push_right
+    sets margin-left to auto
+
+list of remaining classes: .border, .border_left, .border_top, .border_right, .border_bottom, .circle, .square, .capsule, .rounded, .height_100, .text_center, .box_shadow, .box_shadow_large, .background_tertiary, .flex, .flex_buttons

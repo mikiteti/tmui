@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="dark">
+    <head>
+        <title>TMUI Framework Test</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="tmui.css">
+        <style>
+            #files {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            @media screen and (max-width: 1200px) {
+                #files {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                #files {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 1rem!important;
+                }
+
+                #toolbar {
+                    border-radius: 0!important;
+                    bottom: 0!important;
+                    width: 100vw!important;
+                    height: 20vw!important;
+                    font-size: 4vw!important;
+                }
+            }
+
+            .file_block {
+                width: 100%;
+                /* height: 100%; */
+            }
+
+            .file_preview {
+                aspect-ratio: 16 / 9;
+            }
+
+            .file_title {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="border_bottom">
+            <div class="container">
+                <div class="row buttons height_100">
+                    <button style="font-size: 30px; margin-right: .25em;" class="icon_button" icon-source="https://icons.getbootstrap.com/assets/icons/grid.svg" onclick="window.open('http://tetimiki.hu/')"></button>
+                    <p class="modal_handler dropdown" tm-for="#user_modal">Miki</p>
+                    <button class="icon_button push_right modal_handler" icon-source="https://icons.getbootstrap.com/assets/icons/gear.svg" tm-for="#settings_modal"></button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row align_items_baseline">
+                    Today
+                    <p class="push_right">2024. 10. 18.</p>
+                </div>
+                <!-- <div class="row"><button class="modal_handler" tm-for="#myModal" tm-role="open">OPEN MODAL</button></div> -->
+                <div id="files" class="row">
+                    <div class="file_block holdable clickable" oncontextmenu="tmui.open_modal(document.querySelector('#note_info_modal'))">
+                        <div class="file_preview card spin_border" style="--border-spin-duration: 2s; --border-width: 5px; --accent-color: red; animation-timing-function: cubic-bezier(0.5, 0.15, 0.5, 0.85);"></div>
+                        <p class="file_title">Új jegyzet</p>
+                    </div>
+                    <div class="file_block holdable clickable" oncontextmenu="tmui.open_modal(document.querySelector('#note_info_modal'))">
+                        <div class="file_preview card spin_border" style="--border-spin-duration: 10s"></div>
+                        <p class="file_title">Új jegyzet</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <button id="new" class="icon_button circle" icon-source="https://icons.getbootstrap.com/assets/icons/plus-lg.svg" style="position: fixed; right: 5vmin; bottom: 5vmin; background-color: var(--accent-color); padding: .2em; font-size: 50px; box-sizing: content-box;"></button>
+
+        <div id="toolbar" class="capsule card" style="position: absolute; left: 50vw; translate: -50% 0; bottom: 2vh; width: 60vw; height: 10vw; padding: 0 4vw; max-height: 12vh;">
+            <div class="row height_100">
+                <div class="row" style="width: fit-content; gap: .2em;">
+                    <button class="box_shadow icon_button background_tertiary circle" id="ctrl_z" icon-source="https://icons.getbootstrap.com/assets/icons/arrow-counterclockwise.svg" style="padding: .1em; font-size: .8em; box-sizing: content-box;"></button>
+                    <button class="box_shadow icon_button background_tertiary circle" id="ctrl_y" icon-source="https://icons.getbootstrap.com/assets/icons/arrow-clockwise.svg" style="padding: .1em; font-size: .8em; box-sizing: content-box;"></button>
+                </div>
+                <div id="tools" class="flex height_100 border" style="flex-grow: 1; overflow-y: hidden;"></div>
+                <div id="colors" style="display: grid; grid-template-columns: repeat(3, auto); max-height: 100%; gap: .2em; height: 2.2em;">
+                    <div class="box_shadow background_tertiary circle" style="width: 1em;"></div>
+                    <div class="box_shadow background_tertiary circle" style="width: 1em;"></div>
+                    <div class="box_shadow background_tertiary circle" style="width: 1em;"></div>
+                    <div class="box_shadow background_tertiary circle" style="width: 1em;"></div>
+                    <div class="box_shadow background_tertiary circle" style="width: 1em;"></div>
+                    <div class="box_shadow background_tertiary circle" style="width: 1em;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="settings_modal" class="modal spin_border">
+            <div class="modal_header">
+                <div class="modal_title">Beállítások</div><button class="modal_handler icon_button" tm-for="#settings_modal" tm-role="close" icon-source="https://icons.getbootstrap.com/assets/icons/x-lg.svg"></button>
+            </div>
+            <div class="modal_main">
+                <div class="container">
+                    <div class="row">
+                        Sötét Mód <input class="push_right" checked type="checkbox" onclick="tmui.set_theme(this.checked ? 'dark' : 'light')">
+                    </div>
+                    <div class="row">
+                        Subi Dubi
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="user_modal" class="modal spin_border narrow">
+            <p class="horizontal_button">Miki</p>
+            <p class="horizontal_button">Riti</p>
+            <p class="horizontal_button">Imcsi</p>
+            <p class="horizontal_button">Csani</p>
+            <p class="horizontal_button gap_before">Új profil</p>
+            <p class="horizontal_button modal_handler" tm-for="#login_modal">Bejelentkezés</p>
+            <p style="color: var(--color-danger);" class="horizontal_button">
+                Kijelentkezés
+                <button class="icon_button push_right" icon-source="https://icons.getbootstrap.com/assets/icons/box-arrow-right.svg"></button>
+            </p>
+        </div>
+
+        <div id="note_info_modal" class="modal spin_border">
+            <div class="modal_header">
+                <div class="modal_title">Új jegyzet</div><button class="modal_handler icon_button" tm-for="#note_info_modal" tm-role="close" icon-source="https://icons.getbootstrap.com/assets/icons/x-lg.svg"></button>
+            </div>
+            <div class="modal_main">
+                Subi Dubi
+            </div>
+            <div class="modal_footer">
+                <button class="icon_button" icon-source="https://icons.getbootstrap.com/assets/icons/copy.svg"></button>
+                <button class="icon_button" icon-source="https://icons.getbootstrap.com/assets/icons/box-arrow-up.svg"></button>
+                <button class="icon_button" icon-source="https://icons.getbootstrap.com/assets/icons/box-arrow-right.svg"></button>
+                <button class="icon_button" icon-source="https://icons.getbootstrap.com/assets/icons/trash3.svg" style="color: var(--color-danger);"></button>
+            </div>
+        </div>
+
+        <div id="login_modal" class="modal spin_border">
+            <div class="modal_header">
+                <div class="modal_title">Bejelentkezés</div><button class="modal_handler icon_button" tm-for="#login_modal" tm-role="close" icon-source="https://icons.getbootstrap.com/assets/icons/x-lg.svg"></button>
+            </div>
+            <div class="modal_main">
+                <div class="container">
+                    <div class="row input_row">
+                        <p>
+                            Email:
+                        </p>
+                        <input id="login_email" autocomplete="email" autocapitalize="none" type="email" placeholder="john.doe@gmail.com">
+                    </div>
+                    <div class="row input_row">
+                        <p>
+                            Jelszó:
+                        </p>
+                        <input id="login_password" autocomplete="current-password" type="password" placeholder="Titok123">
+                    </div>
+                    <div class="row">
+                        <button class="modal_handler push_right" tm-for="#login_modal" tm-role="close">Bejelentkezés</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="tmui.js"></script>
+        <script>
+            const tmui = tmui_controls();
+
+
+            const setup = () => {
+                document.querySelectorAll(".file_preview").forEach(el => el.style.aspectRatio = window.innerWidth / window.innerHeight);
+
+                window.addEventListener('resize', () => { console.log("resizing"); document.querySelectorAll(".file_preview").forEach(el => el.style.aspectRatio = window.innerWidth / window.innerHeight); });
+            }
+        </script>
+    </body>
+</html>
