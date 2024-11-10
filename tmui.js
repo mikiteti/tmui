@@ -136,6 +136,9 @@ const tmui_controls = ({
                 if (e.target.getAttribute("tm-role") == "close") close_modal(document.querySelector(e.target.getAttribute("tm-for")));
                 else open_modal(document.querySelector(e.target.getAttribute("tm-for")));
             }
+            if (e.target.classList.contains("toggle")) {
+                e.target.classList.toggle("active");
+            }
         })
 
 

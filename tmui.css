@@ -348,6 +348,40 @@ button *, .icon_button *, .horizontal_button *, .dropdown *, .holdable *, .modal
 }
 /* </BUTTON> */
 
+/* <TOGGLE LIST> */
+.toggle_list {
+    background-color: var(--color-background-secondary);
+    display: flex;
+    max-width: 100%;
+    width: fit-content;
+    flex-wrap: wrap;
+    margin: auto;
+    padding: .25em 1em;
+    border-radius: .4em;
+    justify-content: space-around;
+}
+
+.toggle_list .toggle {
+    font-size: calc(.9 * var(--text-size));
+    padding: .125em .75em;
+}
+
+.toggle {
+    --inactive-color: var(--color-contrast-secondary);
+    --active-color: var(--accent-color);
+    color: var(--inactive-color);
+    transition: color .5s; 
+}
+
+.toggle:not(.active):hover {
+    color: var(--color-contrast);
+}
+
+.toggle.active {
+    color: var(--active-color);
+}
+/* </TOGGLE LIST> */
+
 /* <CARD> */
 .card {
     background-color: var(--color-background-secondary);

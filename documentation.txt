@@ -64,6 +64,12 @@ button
         flexbox with --buttons-gap,
         mostly used in .narrow .modals
 
+.toggle
+    has color --color-inactive (by default --color-contrast-secondary) by default, when .active has color --color-active (by default --accent-color)
+    toggles it's own active status on click
+    .toggle_list
+        wrapper of .toggles, arranges them into a flexbox with optional wrapping allowed 
+
 .card
     has box-shadow --box-shadow, border-radius --card-border-radius, background-color --color-background-secondary
 
