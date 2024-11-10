@@ -2,7 +2,7 @@
 
 /* <GLOBAL> */
 :root {
-    --accent-color: #1B9C85;
+    --accent-color: #88c0d0;
     --modal-background-background-color: rgba(0,0,0,0);
     --modal-background-backdrop-blur: 10px;
     --modal-border-radius: 20px;
@@ -45,11 +45,11 @@
     --checkbox-background-color: #39393d;
     --active-button-background: var(--accent-color);
     
-    --color-background: #323437;
-    --color-background-secondary: #2c2e31;
+    --color-background: #242933;
+    --color-background-secondary: #2e3440;
     --color-background-tertiary: #363739;
-    --color-constrast: #d1d0c5;
-    --color-contrast-secondary: #646669;
+    --color-constrast: #d5dbe5;
+    --color-contrast-secondary: #929aaa;
     --box-shadow: .1em .1em 5px #00000044;
     --box-shadow-large: none;
 }
