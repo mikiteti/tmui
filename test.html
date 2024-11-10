@@ -49,12 +49,18 @@
         </style>
     </head>
     <body>
-        <header class="border_bottom">
+        <header style="margin: 1em 0">
             <div class="container">
                 <div class="row buttons height_100">
-                    <button style="font-size: 30px; margin-right: .25em;" class="icon_button" icon-source="https://icons.getbootstrap.com/assets/icons/grid.svg" onclick="window.open('http://tetimiki.hu/')"></button>
-                    <p class="modal_handler dropdown" tm-for="#user_modal">Miki</p>
-                    <button class="icon_button push_right modal_handler" icon-source="https://icons.getbootstrap.com/assets/icons/gear.svg" tm-for="#settings_modal"></button>
+                    <!-- <button style="font-size: 30px; margin-right: .25em;" class="icon_button" icon-source="https://icons.getbootstrap.com/assets/icons/grid.svg" onclick="window.open('http://tetimiki.hu/')"></button> -->
+                    <img src="img/icosahedron.png" style="height: 80%" alt="">
+                    <p style="margin-right: .5em; font-weight: 500; font-size: 1.2em">Limes</p>
+                    <button class="icon_button color_secondary hoverable modal_handler" icon-source="https://icons.getbootstrap.com/assets/icons/gear-fill.svg" tm-for="#settings_modal"></button>
+                    <button class="icon_button color_secondary hoverable modal_handler" icon-source="https://icons.getbootstrap.com/assets/icons/search-heart-fill.svg" tm-for="#settings_modal"></button>
+                    <div class="modal_handler push_right flex color_secondary hoverable" tm-for="#user_modal" style="gap: .1em; align-items: center;">
+                        <button class="icon_button" icon-source="https://icons.getbootstrap.com/assets/icons/person-fill.svg"></button>
+                        <p>Miki</p>
+                    </div>
                 </div>
             </div>
         </header>
@@ -68,7 +74,11 @@
                 <!-- <div class="row"><button class="modal_handler" tm-for="#myModal" tm-role="open">OPEN MODAL</button></div> -->
                 <div id="files" class="row">
                     <div class="file_block holdable clickable" oncontextmenu="tmui.open_modal(document.querySelector('#note_info_modal'))">
-                        <div class="file_preview card spin_border" style="--border-spin-duration: 2s; --border-width: 5px; --accent-color: red; animation-timing-function: cubic-bezier(0.5, 0.15, 0.5, 0.85);"></div>
+                        <div class="file_preview card spin_border" style="--border-spin-duration: 10s"></div>
+                        <p class="file_title">Új jegyzet</p>
+                    </div>
+                    <div class="file_block holdable clickable" oncontextmenu="tmui.open_modal(document.querySelector('#note_info_modal'))">
+                        <div class="file_preview card spin_border" style="--border-spin-duration: 10s"></div>
                         <p class="file_title">Új jegyzet</p>
                     </div>
                     <div class="file_block holdable clickable" oncontextmenu="tmui.open_modal(document.querySelector('#note_info_modal'))">
@@ -81,13 +91,13 @@
 
         <button id="new" class="icon_button circle" icon-source="https://icons.getbootstrap.com/assets/icons/plus-lg.svg" style="position: fixed; right: 5vmin; bottom: 5vmin; background-color: var(--accent-color); padding: .2em; font-size: 50px; box-sizing: content-box;"></button>
 
-        <div id="toolbar" class="capsule card" style="position: absolute; left: 50vw; translate: -50% 0; bottom: 2vh; width: 60vw; height: 10vw; padding: 0 4vw; max-height: 12vh;">
+        <div id="toolbar" class="capsule card spin_border" style="--border-spin-duration: 10s; position: absolute; left: 50vw; translate: -50% 0; bottom: 2vh; width: 60vw; height: 10vw; padding: 0 4vw; max-height: 12vh;">
             <div class="row height_100">
                 <div class="row" style="width: fit-content; gap: .2em;">
                     <button class="box_shadow icon_button background_tertiary circle" id="ctrl_z" icon-source="https://icons.getbootstrap.com/assets/icons/arrow-counterclockwise.svg" style="padding: .1em; font-size: .8em; box-sizing: content-box;"></button>
                     <button class="box_shadow icon_button background_tertiary circle" id="ctrl_y" icon-source="https://icons.getbootstrap.com/assets/icons/arrow-clockwise.svg" style="padding: .1em; font-size: .8em; box-sizing: content-box;"></button>
                 </div>
-                <div id="tools" class="flex height_100 border" style="flex-grow: 1; overflow-y: hidden;"></div>
+                <div id="tools" class="flex height_100 " style="flex-grow: 1; overflow-y: hidden;"></div>
                 <div id="colors" style="display: grid; grid-template-columns: repeat(3, auto); max-height: 100%; gap: .2em; height: 2.2em;">
                     <div class="box_shadow background_tertiary circle" style="width: 1em;"></div>
                     <div class="box_shadow background_tertiary circle" style="width: 1em;"></div>

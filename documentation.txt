@@ -81,4 +81,4 @@ input[type="checkbox"]
 .push_right
     sets margin-left to auto
 
-list of remaining classes: .border, .border_left, .border_top, .border_right, .border_bottom, .circle, .square, .capsule, .rounded, .height_100, .text_center, .box_shadow, .box_shadow_large, .background_tertiary, .flex, .flex_buttons
+list of remaining classes: .border, .border_left, .border_top, .border_right, .border_bottom, .circle, .square, .capsule, .rounded, .height_100, .text_center, .box_shadow, .box_shadow_large, .background_tertiary, .flex, .flex_buttons, .color_secondary
