@@ -47,6 +47,7 @@
                 text-align: center;
             }
         </style>
+        <script src="https://kit.fontawesome.com/4eaebaa12d.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <header style="margin: 1em 0 2em 0">
@@ -56,12 +57,19 @@
                     <svg style="color:var(--accent-color)" width="48" height="48" viewBox="0 0 12.7 12.7" version="1.1" id="icosahedron" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
                         <path style="fill:currentColor;fill-opacity:1;stroke-width:1.058;stroke-linecap:round;filter:brightness(1)" d="M 1.5059844,5.982392 8.567967,8.7628023 7.4313443,1.2941536 Z" /><path style="fill:currentColor;fill-opacity:1;stroke-width:1.058;stroke-linecap:round;filter:brightness(.7)" d="M 1.5059844,5.982392 3.7638499,11.733769 8.567967,8.7628023" /><path style="fill:currentColor;fill-opacity:1;stroke-width:1.058;stroke-linecap:round;filter:brightness(.23)" d="M 3.7638499,11.733769 8.567967,8.7628023 9.9264735,10.775645" /><path style="fill:currentColor;fill-opacity:1;stroke-width:1.058;stroke-linecap:round;filter:brightness(.235)" d="M 9.9264735,10.775645 8.567967,8.7628023 12.308291,4.9006454" /><path style="fill:currentColor;fill-opacity:1;stroke-width:1.058;stroke-linecap:round;filter:brightness(.622)" d="M 12.308291,4.9006454 8.567967,8.7628023 7.4313443,1.2941536" /><path style="fill:currentColor;fill-opacity:1;stroke-width:1.058;stroke-linecap:round;filter:brightness(.33)" d="M 7.4313443,1.2941536 8.369879,0.84090983 12.308291,4.9006454 Z" /><path style="fill:currentColor;fill-opacity:1;stroke-width:1.058;stroke-linecap:round;filter:brightness(.56)" d="M 8.369879,0.84090983 7.4313443,1.2941536 2.3357866,1.1430723" /><path style="fill:currentColor;fill-opacity:1;stroke-width:1.058;stroke-linecap:round;filter:brightness(.926)" d="M 2.3357866,1.1430723 1.5059844,5.982392 7.4313443,1.2941536" /><path style="fill:currentColor;fill-opacity:1;stroke-width:1.058;stroke-linecap:round;filter:brightness(.65)" d="M 2.3357866,1.1430723 0.54570303,7.0417146 1.5059844,5.982392" /><path style="fill:currentColor;fill-opacity:1;stroke-width:1.058;stroke-linecap:round;filter:brightness(.454)" d="M 1.5059844,5.982392 0.54570303,7.0417146 3.7638499,11.733769" />
                     </svg>
-                    <p style="margin-right: .5em; font-weight: 500; font-size: 1.2em">Limes</p>
-                    <button class="icon_button color_secondary hoverable modal_handler" icon-source="https://icons.getbootstrap.com/assets/icons/gear-fill.svg" tm-for="#settings_modal"></button>
-                    <button class="icon_button color_secondary hoverable modal_handler" icon-source="https://icons.getbootstrap.com/assets/icons/search-heart-fill.svg" tm-for="#settings_modal"></button>
-                    <div class="modal_handler push_right flex color_secondary hoverable" tm-for="#user_modal" style="gap: .1em; align-items: center;">
-                        <button class="icon_button" icon-source="https://icons.getbootstrap.com/assets/icons/person-fill.svg"></button>
-                        <p>Miki</p>
+                    <p class="no_xs" style="margin-right: .5em; font-weight: 500; font-size: 1.2em">Limes</p>
+                    <!--
+                        <button class="icon_button color_secondary hoverable modal_handler" icon-source="https://icons.getbootstrap.com/assets/icons/gear-fill.svg" tm-for="#settings_modal"></button>
+                        <button class="icon_button color_secondary hoverable modal_handler" icon-source="https://icons.getbootstrap.com/assets/icons/search-heart-fill.svg" tm-for="#settings_modal"></button>
+                    -->
+                    <div id="icons" class="flex color_secondary" style="gap: .5em;">
+                        <i class="fa-solid fa-gear hoverable"></i>
+                        <i class="fa-solid fa-magnifying-glass hoverable"></i>
+                    </div>
+                    <div class="modal_handler push_right flex color_secondary hoverable" tm-for="#user_modal" style="gap: .2em; align-items: center;">
+                        <i class="fa-solid fa-user"></i>
+                        <!-- <button class="icon_button" icon-source="https://icons.getbootstrap.com/assets/icons/person-fill.svg"></button> -->
+                        <p class="no_xs">Miki</p>
                     </div>
                 </div>
             </div>
@@ -75,6 +83,10 @@
                     <p class="toggle">EM</p>
                     <p class="toggle">Fizika</p>
                     <p class="toggle">IPhO</p>
+                    <p class="toggle">idk</p>
+                    <p class="toggle">idk</p>
+                    <p class="toggle">idk</p>
+                    <p class="toggle">idk</p>
                 </div> 
                 <div class="row align_items_baseline">
                     Today
@@ -105,6 +117,9 @@
                 <div class="row" style="width: fit-content; gap: .2em;">
                     <button class="box_shadow icon_button background_tertiary circle" id="ctrl_z" icon-source="https://icons.getbootstrap.com/assets/icons/arrow-counterclockwise.svg" style="padding: .1em; font-size: .8em; box-sizing: content-box;"></button>
                     <button class="box_shadow icon_button background_tertiary circle" id="ctrl_y" icon-source="https://icons.getbootstrap.com/assets/icons/arrow-clockwise.svg" style="padding: .1em; font-size: .8em; box-sizing: content-box;"></button>
+                    <div class="clickable">
+                        <i class="fa-solid fa-arrow-rotate-right"></i> 
+                    </div>
                 </div>
                 <div id="tools" class="flex height_100 " style="flex-grow: 1; overflow-y: hidden;"></div>
                 <div id="colors" style="display: grid; grid-template-columns: repeat(3, auto); max-height: 100%; gap: .2em; height: 2.2em;">
