@@ -10,7 +10,7 @@ include tmui.js on bottom, save tmui_controls() as const -- recommended name: "t
 
 themes
     switch with tmui.set_theme();
-    accepted parameters: "light", "dark"
+    accepted parameters: "light", "dark" --yet
 
 modals
     #modal_background: covers and blurs whole page, closes open modal on click, added automatically on tmui_controls()
@@ -57,7 +57,7 @@ button
     .icon_button
         adds pressable inline icon
         parsed on tmui_controls()
-        icon-source: url to svg file -- preferrably "https://icons.getbootstrap.com/assets/icons/*.svg" -- required
+        tm-source: url to svg file -- preferrably "https://icons.getbootstrap.com/assets/icons/*.svg" -- required
         .dropdown
             .icon_button with default icon-source "https://icons.getbootstrap.com/assets/icons/chevron-expand.svg"
     .horizontal_button
