@@ -470,6 +470,7 @@ p {
     position: absolute;
     inset: 10%;
     background-color: currentColor;
+    pointer-events: none;
 }
 
 .color.active {
