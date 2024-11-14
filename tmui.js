@@ -87,7 +87,7 @@ const tmui_controls = ({
     // </THEME>
 
     // <BUTTONS>
-    const create_icon_button = (element) => { fetch(element.getAttribute("icon-source") || "https://icons.getbootstrap.com/assets/icons/chevron-expand.svg").then(res => res.text()).then(text => element.innerHTML += text) };
+    const create_icon_button = (element) => { fetch(element.getAttribute("tm-source") || "https://icons.getbootstrap.com/assets/icons/chevron-expand.svg").then(res => res.text()).then(text => element.innerHTML += text) };
     // </BUTTONS>
 
     // <HOLDABLES>
