@@ -90,6 +90,17 @@ const tmui_controls = ({
     const create_icon_button = (element) => { fetch(element.getAttribute("tm-source") || "https://icons.getbootstrap.com/assets/icons/chevron-expand.svg").then(res => res.text()).then(text => element.innerHTML += text) };
     // </BUTTONS>
 
+    // <COLORS>
+    const create_color = (element) => { 
+        element.addEventListener("load", () => { element.style.borderWidth = (element.getBoundingClientRect().width / 10) + "px"; });
+        element.addEventListener("click", () => {
+            if (element.parentElement.matches(".color_list")) for (const col of element.parentElement.children) col.classList.remove("active");
+            element.classList.add("active");
+
+        })
+    }
+    // </COLORS>
+
     // <HOLDABLES>
     let pressed_element = undefined, hold_interrupted = false, hold_counter = 0;
     const element_down = (element) => {
@@ -152,6 +163,20 @@ const tmui_controls = ({
         document.querySelectorAll(".icon_button, .dropdown").forEach(element => create_icon_button(element));
         // </BUTTONS>
 
+        // <COLORS>
+        document.querySelectorAll(".color_list").forEach(element => {
+            for (const col of element.getAttribute("tm-colors").split(" ")) {
+                const el = document.createElement("div");
+                el.classList.add("color");
+                el.style.color = col;
+                element.appendChild(el);
+            }
+            element.style.gridTemplateColumns = "repeat(" + element.children.length + ", 1fr)";
+        });
+
+        document.querySelectorAll(".color").forEach(element => create_color(element));
+        // </COLORS>
+
         // <EVENTS>
             // <HOLDABLES>
             document.querySelectorAll(".holdable").forEach(element => create_holdable(element));
@@ -169,6 +194,7 @@ const tmui_controls = ({
                         if (node.matches(".modal")) create_modal(node);
                         if (node.matches(".icon_button, .dropdown")) create_icon_button(node);
                         if (node.matches(".holdable")) create_holdable(node);
+                        if (node.matches(".color")) node.addEventListener("load", () => { node.style.borderWidth = (node.getBoundingClientRect().width / 10) + "px"; });
                     }
                 }
             });

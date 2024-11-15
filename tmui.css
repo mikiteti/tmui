@@ -24,7 +24,6 @@
     --background-color: var(--color-background-secondary); /* for elements with spinning borders */ 
     --checkbox-background-color-checked: var(--accent-color);
 
-
     --color-primary: #6C9BCF;
     --color-danger: #FF0060;
     --color-success: #1B9C85;
@@ -36,6 +35,8 @@
     box-sizing: border-box;
     font-family: "Maven Pro", system-ui;
     user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     touch-action: none;
 }
 /* </GLOBAL> */
@@ -424,7 +425,7 @@ footer {
 }
 
 .modal .container {
-    gap: var(--modal-gap);
+    gap: var(--gap);
 }
 
 .row {
@@ -442,6 +443,41 @@ p {
     margin: 0;
 }
 /* </P> */
+
+/* <COLOR PICKER> */
+.color_list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8%;
+}
+
+.color {
+    border-radius: 50%;
+    aspect-ratio: 1;
+    background-color: currentColor;
+    border: 5px solid currentColor;
+    scale: 1;
+    margin: auto;
+    max-width: 50px;
+    width: 100%;
+    transition: background-color .5s;
+}
+
+.color::before {
+    content: "";
+    border-radius: 50%;
+    color: inherit;
+    position: absolute;
+    inset: 10%;
+    background-color: currentColor;
+    pointer-events: none;
+}
+
+.color.active {
+    background-color: transparent;
+}
+/* </COLOR PICKER> */
 
 /* <MEDIA QUERIES> */
 @media (max-width: 575px) { /* xs */
