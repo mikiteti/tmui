@@ -358,7 +358,7 @@ button *, .icon_button *, .horizontal_button *, .dropdown *, .holdable *, .modal
     width: fit-content;
     flex-wrap: wrap;
     margin: auto;
-    padding: .25em 1em;
+    padding: 0 1em;
     max-height: min-content;
     border-radius: .4em;
     justify-content: space-around;
@@ -366,7 +366,7 @@ button *, .icon_button *, .horizontal_button *, .dropdown *, .holdable *, .modal
 
 .toggle_list .toggle {
     font-size: calc(.9 * var(--text-size));
-    padding: .125em .75em;
+    padding: .4em .75em;
 }
 
 .toggle {
