@@ -253,6 +253,7 @@ input:not([type="checkbox"]) {
     padding: .2em .5em;
     border-radius: .5em;
     width: 15em;
+    color: var(--color-contrast);
 }
 /* </INPUT> */
 
