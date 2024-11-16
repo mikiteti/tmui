@@ -311,14 +311,14 @@ button:not(.icon_button):active {
 }
 
 .horizontal_button:not(.horizontal_button:first-child, .horizontal_button.horizontal_button.gap_before) {
-    border-top: var(--color-contrast-secondary) solid var(--border-width);
+    border-top: var(--border-width) solid var(--color-contrast-secondary);
 }
 
 .horizontal_button:active {
     background-color: var(--active-button-background);
 }
 
-.horizontal_button.gap_before {
+.horizontal_button.gap_before:not(.horizontal_button:first-child) {
     border-top: calc(var(--border-width) * 3) solid var(--color-contrast-secondary);
 }
 
