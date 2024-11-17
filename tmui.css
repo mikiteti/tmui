@@ -374,6 +374,24 @@ button *, .icon_button *, .horizontal_button *, .dropdown *, .holdable *, .modal
     --active-color: var(--accent-color);
     color: var(--inactive-color);
     transition: color .5s; 
+    position: relative;
+}
+
+.toggle::after {
+    content: "";
+    width: 0%;
+    height: 1px;
+    background-color: var(--inactive-color);
+    transform: translate(-50%, -50%);
+    transition: width .5s, background-color .5s;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+}
+
+.toggle.active::after {
+    width: 100%;
+    background-color: var(--active-color);
 }
 
 .toggle:not(.active):hover {
