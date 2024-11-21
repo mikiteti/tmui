@@ -188,6 +188,8 @@ body {
 .modal_main {
     padding: var(--modal-main-padding);
     gap: var(--gap);
+    display: flex;
+    flex-direction: column;
     font-size: calc(var(--modal-title-font-size) * .8);
 }
 /* </MODAL> */
