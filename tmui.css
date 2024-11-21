@@ -187,6 +187,7 @@ body {
 
 .modal_main {
     padding: var(--modal-main-padding);
+    gap: var(--gap);
     font-size: calc(var(--modal-title-font-size) * .8);
 }
 /* </MODAL> */
@@ -605,6 +606,14 @@ p {
 
 .box_shadow_large {
     box-shadow: var(--box-shadow-large);
+}
+
+.background_primary {
+    background-color: var(--color-background);
+}
+
+.background_secondary {
+    background-color: var(--color-background-secondary);
 }
 
 .background_tertiary {
